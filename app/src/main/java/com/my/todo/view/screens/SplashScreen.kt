@@ -1,6 +1,5 @@
 package com.my.todo.view.screens
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,11 +26,9 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController) {
-    Log.i("SplashScreen--", "Called")
     var permissionChecked by remember { mutableStateOf(false) }
     var permissionGranted by remember { mutableStateOf(false) }
 
-    // Call the separate permission check composable
     NotificationPermissionCheck(
         onPermissionResult = { isGranted ->
             permissionGranted = isGranted

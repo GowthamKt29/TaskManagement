@@ -2,7 +2,6 @@ package com.my.todo.view.screens.home
 
 import android.net.Uri
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -115,7 +114,7 @@ fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel?) {
                 ButtonRow(homeViewModel, selectedStatus = {
                     status = it
                 })
-                homeViewModel?.let {
+                homeViewModel?.let { it ->
                     TaskList(it, status, taskCount = {
                         taskSize = it
                     }, itemClicked = { task ->
@@ -353,7 +352,6 @@ fun ButtonRow(homeViewModel: HomeViewModel?, selectedStatus: (String) -> Unit) {
 
 @Composable
 private fun RoundedButton(item: ButtonItem, onButtonClicked: (String) -> Unit) {
-    Log.i("RoundedButton--", item.isSelected.toString())
     Button(
         onClick = { onButtonClicked(item.text) },
         colors = ButtonDefaults.buttonColors(containerColor = if (item.isSelected) Purple80 else Color.Black),
